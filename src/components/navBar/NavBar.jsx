@@ -2,6 +2,7 @@ import React from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import todoLogo from "../../assets/todoImage.jpeg";
+
 export default function NavBar({ profile }) {
   let navigate = useNavigate();
 
@@ -12,7 +13,7 @@ export default function NavBar({ profile }) {
         navigate("/signin");
       })
       .catch((error) => {
-        window.M.toast({ html: error.message, classes: "red" });
+        alert({ html: error.message, classes: "red" });
       });
   };
   return (
@@ -48,10 +49,18 @@ export default function NavBar({ profile }) {
                 <img
                   src={profile}
                   class="rounded-circle"
-                  alt="Black and White Portrait of a Man"
+                  alt="profile"
                   loading="lazy"
                   height={60}
                   width={60}
+                  style={{
+                    border: "4px solid #cddc39",
+                    padding: "2px",
+                    borderRadius: "50%",
+                    borderTopColor: "#ff5722",
+                    borderLeftColor: "#ff5722",
+                    filter: "drop-shadow(0 0 5px #ff5722)"
+                  }}
                 />
               </a>
               <ul
@@ -59,7 +68,7 @@ export default function NavBar({ profile }) {
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="/profile">
                     My profile
                   </a>
                 </li>

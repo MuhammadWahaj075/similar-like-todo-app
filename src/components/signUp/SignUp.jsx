@@ -27,26 +27,25 @@ export default function SignUp() {
         email,
         password,
         fName
-      )
-        .then(() => {
-          const user = auth.currentUser;
-          updateProfile({
-            displayName: fName,
-          });
-        })
-        .catch((e) => {
-          console.log(e.code, e.message);
-        });
+      );
+      // .then(() => {
+      //   const user = auth.currentUser;
+      //   updateProfile({
+      //     displayName: fName,
+      //   });
+      // })
+      // .catch((e) => {
+      //   console.log(e.code, e.message);
+      // });
       if (result) {
         navigate("/signin");
       }
-      window.M.toast({ html: `welcome${result.user.email}`, classes: "green" });
+      alert(JSON.stringify(result.user.email));
     } catch (err) {
-      window.M.toast({ html: err.message, classes: "red" });
+      alert(JSON.stringify(err.message));
     }
   };
 
-  
   return (
     // <Stack
     // mt={{md:15, xl: 30}}
@@ -150,9 +149,9 @@ export default function SignUp() {
               />
 
               <div className="text-center pt-1 mb-5 pb-1">
-                <MDBBtn className="mb-4 w-100 gradient-custom-2">
+                <button className="mb-4 w-100 gradient-custom-2">
                   Sign Up
-                </MDBBtn>
+                </button>
               </div>
             </form>
             <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">

@@ -23,13 +23,13 @@ export default function SignIn() {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       if (result) {
-        navigate("/");
+        navigate("/welcome");
       } else {
         alert("hello error");
       }
-      window.M.toast({ html: `welcome${result.user.email}`, classes: "green" });
+      alert(JSON.stringify(result.user.email));
     } catch (err) {
-      window.M.toast({ html: err.message, classes: "red" });
+      alert(JSON.stringify(err.message));
     }
   };
 
@@ -121,7 +121,7 @@ export default function SignIn() {
               />
 
               <div className="text-center pt-1 mb-5 pb-1">
-                <MDBBtn className="mb-4 w-100 gradient-custom-2">log in</MDBBtn>
+                <button className="mb-4 w-100 gradient-custom-2">log in</button>
               </div>
             </form>
 

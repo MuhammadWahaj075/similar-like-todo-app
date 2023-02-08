@@ -15,8 +15,7 @@ import Todo from "./Todo";
 const Home = () => {
   const [userName, setUserName] = useState("");
   const [file, setFile] = useState([]);
-  console.log("🚀 ~ file: Home.jsx:18 ~ Home ~ file", file)
-  
+  console.log("🚀 ~ file: Home.jsx:18 ~ Home ~ file", file);
 
   function handleChange(event) {
     setFile(event.target.files[0]);
@@ -26,7 +25,7 @@ const Home = () => {
     if (!file) {
       alert("Please choose a file first!");
     }
-    
+
     const storageRef = ref(storage, `/UserProfile/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -56,7 +55,10 @@ const Home = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      console.log("🚀 ~ file: Home.jsx:59 ~ auth.onAuthStateChanged ~ user", user)
+      console.log(
+        "🚀 ~ file: Home.jsx:59 ~ auth.onAuthStateChanged ~ user",
+        user
+      );
       if (!user) {
         setUserName(user.displayName);
       } else {
@@ -72,25 +74,7 @@ const Home = () => {
       </div>
       {/* <h1 color="black">hello my name is {userName} </h1> */}
 
-      <img
-        style={{ borderRadius: "60px" }}
-        width={80}
-        height={80}
-        src={file[0]}
-        alt=""
-      />
-      <IconButton color="primary" aria-label="upload picture" component="label">
-        <PhotoCamera />
-        <input hidden accept="image/*" type="file" onChange={handleChange} />
-        <button
-          style={{ height: "10%", width: "60%", fontSize: "12px" }}
-          onClick={handleUpload}
-        >
-          Upload
-        </button>
-         
-      </IconButton>
-      <Todo />  
+      <Todo />
     </div>
   );
 };
