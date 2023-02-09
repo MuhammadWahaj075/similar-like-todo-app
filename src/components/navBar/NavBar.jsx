@@ -1,6 +1,6 @@
 import React from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import todoLogo from "../../assets/todoImage.jpeg";
 
 export default function NavBar({ profile }) {
@@ -18,10 +18,13 @@ export default function NavBar({ profile }) {
   };
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <div
+            className="collaps e navbar-collapse"
+            id="navbarSupportedContent"
+          >
+            <a className="navbar-brand mt-2 mt-lg-0" href="/welcome">
               <img
                 src={todoLogo}
                 alt="logo-image"
@@ -32,15 +35,10 @@ export default function NavBar({ profile }) {
             </a>
           </div>
 
-          <div class="d-flex align-items-center">
-            <a class="text-reset me-3" href="#">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-
-            <div class="dropdown">
+          <div className="d-flex align-items-center">
+            <div className="dropdown">
               <a
-                class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
+                className="dropdown-toggle d-flex align-items-center hidden-arrow"
                 id="navbarDropdownMenuAvatar"
                 role="button"
                 data-mdb-toggle="dropdown"
@@ -48,7 +46,7 @@ export default function NavBar({ profile }) {
               >
                 <img
                   src={profile}
-                  class="rounded-circle"
+                  className="rounded-circle"
                   alt="profile"
                   loading="lazy"
                   height={60}
@@ -59,22 +57,22 @@ export default function NavBar({ profile }) {
                     borderRadius: "50%",
                     borderTopColor: "#ff5722",
                     borderLeftColor: "#ff5722",
-                    filter: "drop-shadow(0 0 5px #ff5722)"
+                    filter: "drop-shadow(0 0 5px #ff5722)",
                   }}
                 />
               </a>
               <ul
-                class="dropdown-menu dropdown-menu-end"
+                className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a class="dropdown-item" href="/profile">
+                  <a className="dropdown-item" href="/profile">
                     My profile
                   </a>
                 </li>
 
                 <li>
-                  <a onClick={handleClick} class="dropdown-item" href="#">
+                  <a onClick={handleClick} className="dropdown-item" href="">
                     Logout
                   </a>
                 </li>

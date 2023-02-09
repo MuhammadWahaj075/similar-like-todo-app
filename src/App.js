@@ -13,7 +13,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/welcome" element={<Home />} />
         </Route>
-        <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/" element={<SignUp />} />
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/profile" element={<Profile />} />
       </Routes>
