@@ -9,6 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
 
 import "./todo.style.css";
+import { Paper } from "@mui/material";
 
 export default function Todo() {
   const [todo, setTodo] = useState("");
@@ -81,44 +82,49 @@ export default function Todo() {
 
   return (
     <div className="homepage">
-      <input
-        className="add-edit-input"
-        type="text"
-        placeholder="Add todo..."
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        required
-      />
+      <Paper sx={{ width: "48%", background: "#3f3c3c" }} elevation={10}>
+        <input
+          className="add-edit-input"
+          type="text"
+          placeholder="Add todo..."
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+          required
+        />
 
-      {todos.map((todo) => (
-        <div className="todo">
-          <h1>{todo.todo}</h1>
-          <EditIcon
-            fontSize="large"
-            onClick={() => handleUpdate(todo)}
-            className="edit-button"
-          />
-          <DeleteIcon
-            fontSize="large"
-            onClick={() => handleDelete(todo.uidd)}
-            className="delete-button"
-          />
-        </div>
-      ))}
+        {todos.map((todo) => (
+          <div className="todo">
+            <h1>{todo.todo}</h1>
+            <EditIcon
+              fontSize="large"
+              onClick={() => handleUpdate(todo)}
+              className="edit-button"
+            />
+            <DeleteIcon
+              fontSize="large"
+              onClick={() => handleDelete(todo.uidd)}
+              className="delete-button"
+            />
+          </div>
+        ))}
 
-      {isEdit ? (
-        <div>
-          <CheckIcon onClick={handleEditConfirm} className="add-confirm-icon" />
-        </div>
-      ) : (
-        <div>
-          {todo === "" ? (
-            <AddIcon disabled className="add-confirm-icon" />
-          ) : (
-            <AddIcon onClick={writeToDatabase} className="add-confirm-icon" />
-          )}
-        </div>
-      )}
+        {isEdit ? (
+          <div>
+            <CheckIcon
+              onClick={handleEditConfirm}
+              className="add-confirm-icon"
+            />
+          </div>
+        ) : (
+          <div>
+            {todo === "" ? (
+              <AddIcon disabled className="add-confirm-icon" />
+            ) : (
+              <AddIcon onClick={writeToDatabase} className="add-confirm-icon" />
+            )}
+          </div>
+        )}
+      </Paper>
     </div>
   );
 }

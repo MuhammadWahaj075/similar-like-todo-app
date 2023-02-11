@@ -1,3 +1,4 @@
+import { CircularProgress, Stack } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import SignUp from "../components/signUp/SignUp";
@@ -9,19 +10,11 @@ export const ProtectedRoute = () => {
   console.log("/////user autheticated", user);
 
   return typeof user === "undefined" ? (
-    <div className="preloader-wrapper small active ">
-      <div className="spinner-layer spinner-green-only ">
-        <div className="circle-clipper left ">
-          <div className="circle "></div>
-        </div>
-        <div className="gap-patch ">
-          <div className="circle "></div>
-        </div>
-        <div className="circle-clipper right ">
-          <div className="circle"></div>
-        </div>
-      </div>
-    </div>
+    <Stack display="flex" justifyContent="center" alignItems="center" mt={30}>
+      <CircularProgress
+        color="success"
+      />
+    </Stack>
   ) : user ? (
     <Outlet />
   ) : (

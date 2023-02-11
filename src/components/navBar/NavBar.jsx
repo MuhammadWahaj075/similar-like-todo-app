@@ -18,7 +18,7 @@ export default function NavBar({ profile }) {
   };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container-fluid">
           <div
             className="collaps e navbar-collapse"
@@ -33,8 +33,22 @@ export default function NavBar({ profile }) {
                 width={80}
               />
             </a>
+            <div
+              style={{
+                marginLeft: "32rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "inherit",
+                  marginTop: "1rem",
+                  fontSize: "30px",
+                }}
+              >
+                Todo App
+              </p>
+            </div>
           </div>
-
           <div className="d-flex align-items-center">
             <div className="dropdown">
               <a

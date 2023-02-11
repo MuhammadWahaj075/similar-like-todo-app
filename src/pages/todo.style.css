@@ -1,58 +1,76 @@
 .homepage {
-     height: 100vh;
-     weight: 100vw;
-     background: linear-gradient(122.19deg, #da2079 1.89%, #2a00d5 113.56%);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: column;
-     position: relative;
-   }
-   
-   .add-edit-input {
-     position: absolute;
-     top: 20px;
-     outline: none;
-     border: none;
-     height: 30px;
-     font-size: 25px;
-     padding: 5px 20px;
-   }
-   
-   .add-confirm-icon {
-     position: absolute;
-     transform: scale(2);
-     top: 27px;
-     right: 750px;
-     cursor: pointer;
-   }
-   
-   .todo {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: row;
-     margin-bottom: 10px;
-   }
-   
-   .todo > h1 {
-     width: 500px;
-     background-color: rgb(211, 211, 211);
-     padding: 5px 10px;
-   }
-   
-   .edit-button,
-   .delete-button {
-     cursor: pointer;
-     margin-left: 10px;
-   }
-   
-   .logout-icon {
-     cursor: pointer;
-     position: absolute;
-     top: 10px;
-     right: 10px;
-     padding: 20px;
-     background: red;
-     color: white;
-   }
+  height: 100vh;
+  weight: 100vw;
+  background: linear-gradient(122.19deg, #3f3c3c 1.89%, #898791 113.56%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.add-edit-input {
+  position: absolute;
+  top: 20px;
+  outline: none;
+  border: none;
+  /* height: 30px; */
+  font-size: 25px;
+  padding: 5px 20px;
+  width: 46% !important;
+}
+
+.add-confirm-icon {
+  position: absolute;
+  transform: scale(2);
+  top: 32px;
+  right: 20rem;
+  border: 1px solid #3f3c3c;
+  color: #3f3c3c;
+  /* left: 3rem; */
+  cursor: pointer;
+}
+
+.add-confirm-icon:hover {
+  background-color: #898791;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-right: 1rem;
+}
+
+.todo > h1 {
+  width: 500px;
+  background-color: rgb(211, 211, 211);
+  padding: 5px 10px;
+}
+
+.edit-button,
+.delete-button {
+  cursor: pointer;
+  margin-left: 10px;
+  border: 1px solid #3f3c3c;
+  filter: hue-rotate(120deg);
+}
+
+.edit-button:hover {
+  background-color: rgb(211, 211, 211);
+}
+.delete-button:hover {
+  background-color: rgb(211, 211, 211);
+}
+
+/* .logout-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  background: red;
+  color: white;
+} */

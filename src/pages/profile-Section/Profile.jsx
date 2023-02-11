@@ -83,28 +83,33 @@ export default function Profile() {
         {/* <h1 color="black">hello my name is {userName} </h1> */}
 
         {skeleton ? (
-            
-            <Paper sx={{
+          <Paper
+          
+            sx={{
               width: "50%",
+              height: "auto",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              ml: "32rem",
-              mt: "12rem",
-            }} elevation={7}>
-          <Stack alignItems="center" spacing={1}>
-            <Skeleton
-              sx={{ mt: "1rem" }}
-              variant="circular"
-              width={200}
-              height={200}
-            />
-            <Skeleton variant="rectangular" width={200} height={80} />
-            <Stack gap={2} direction="row" >
-           <Skeleton variant="rectangular" width={210} height={60} />
-        <Skeleton variant="rounded" width={210} height={60} />
-        </Stack>  {/**/}
-          </Stack>
+              ml: { xl: "32rem", md: "22rem" },
+              mt: { xl: "12rem", md: "3rem" },
+            }}
+            elevation={7}
+          >
+            <Stack alignItems="center" spacing={1}>
+              <Skeleton
+                sx={{ mt: "1rem" }}
+                variant="circular"
+                width={200}
+                height={200}
+              />
+              <Skeleton variant="rectangular" width={200} height={80} />
+              <Stack gap={2} direction="row">
+                <Skeleton variant="rectangular" width={210} height={60} />
+                <Skeleton variant="rounded" width={210} height={60} />
+              </Stack>{" "}
+              {/**/}
+            </Stack>
           </Paper>
         ) : (
           <Paper
@@ -113,12 +118,12 @@ export default function Profile() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              ml: "32rem",
-              mt: "12rem",
+              ml: { xl: "32rem", md: "22rem" },
+              mt: { xl: "12rem", md: "3rem" },
             }}
             elevation={7}
           >
-            <Stack>
+            <Stack >
               <Stack
                 sx={{
                   display: "flex",

@@ -1,27 +1,24 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { MDBContainer, MDBInput, MDBRow, MDBCol } from "mdb-react-ui-kit";
+
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBInput,
-  MDBRow,
-  MDBCol,
-} from "mdb-react-ui-kit";
 
 import "./style.css";
+import { CircularProgress } from "@mui/material";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fName, setFName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("hello email", email, password);
     try {
+      setIsLoading(true);
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -39,6 +36,7 @@ export default function SignUp() {
       // });
       if (result) {
         navigate("/signin");
+        setIsLoading(false);
       }
       alert(JSON.stringify(result.user.email));
     } catch (err) {
@@ -149,13 +147,20 @@ export default function SignUp() {
               />
 
               <div className="text-center pt-1 mb-5 pb-1">
-                <button className="mb-4 w-100 gradient-custom-2">
-                  Sign Up
+                <button style={{fontWeight: 700, color: "#fff"}} className="mb-4 w-100 gradient-custom-2">
+                  {isLoading ? (
+                    <CircularProgress
+                      sx={{ fontSize: "1rem" }}
+                      color="inherit"
+                    />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
               </div>
             </form>
             <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
-              <p className="mb-0">Already have an account</p>
+              <p style={{fontWeight: 500, fontFamily: "monospace"}} className="mb-0">Already have an account</p>
               <Link
                 style={{
                   marginLeft: 10,
